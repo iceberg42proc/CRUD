@@ -10,22 +10,22 @@ class MyOrderingFilter(filters.OrderingFilter):
 
 class ItemFilter(FilterSet):
 
-    name = filters.CharFilter(label='氏名', lookup_expr='contains')
-    memo = filters.CharFilter(label='備考', lookup_expr='contains')
+    memo = filters.CharFilter(label='メモ', lookup_expr='contains')
+    memo_ex = filters.CharFilter(label='備考', lookup_expr='contains')
 
     order_by = MyOrderingFilter(
 
         fields=(
-            ('name', 'name'),
-            ('age', 'age'),
+            ('memo', 'memo'),
+            ('number', 'number'),
         ),
         field_labels={
-            'name': '氏名',
-            'age': '年齢',
+            'memo': 'メモ',
+            'number': '番号',
         },
         label='並び順'
     )
 
     class Meta:
         model = Item
-        fields = ('name', 'sex', 'memo',)
+        fields = ('memo', 'category', 'memo_ex',)

@@ -6,10 +6,10 @@ class ItemForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ('name','age','sex','memo')
+        fields = ('memo','number','category','memo_ex')
         widgets = {
-                    'name': forms.TextInput(attrs={'placeholder':'記入例：山田　太郎'}),
-                    'age': forms.NumberInput(attrs={'min':1}),
-                    'sex': forms.RadioSelect(),
-                    'memo': forms.Textarea(attrs={'rows':4}),
+                    'memo': forms.TextInput(),
+                    'number': forms.NumberInput(attrs={'min':1}),
+                    'category': forms.RadioSelect(),
+                    'memo_ex': forms.Textarea(attrs={'rows':4}),
                   }

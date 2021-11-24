@@ -4,27 +4,27 @@ from django.core import validators
 
 class Item(models.Model):
 
-    SEX_CHOICES = (
-        (1, '男性'),
-        (2, '女性'),
+    CATEGORY_CHOICES = (
+        (1, 'カテゴリー１'),
+        (2, 'カテゴリー２'),
     )
 
-    name = models.CharField(
-        verbose_name='名前',
+    memo = models.CharField(
+        verbose_name='メモ',
         max_length=200,
     )
-    age = models.IntegerField(
-        verbose_name='年齢',
+    number = models.IntegerField(
+        verbose_name='番号',
         validators=[validators.MinValueValidator(1)],
         blank=True,
         null=True,
     )
-    sex = models.IntegerField(
-        verbose_name='性別',
-        choices=SEX_CHOICES,
+    category = models.IntegerField(
+        verbose_name='カテゴリー',
+        choices=CATEGORY_CHOICES,
         default=1
     )
-    memo = models.TextField(
+    memo_ex = models.TextField(
         verbose_name='備考',
         max_length=300,
         blank=True,
